@@ -16,7 +16,7 @@
         <main>
             <h2> Final Grade Calculator </h2><br>
             <p>
-                <form id="finalGrade" action='' method="POST">
+                <form id="finalGrade" action="dataToFile.php" method="POST">
                     <div id="totalCourses">
                         <!-- Courses added dynamically using javaScript -->
                     </div>
