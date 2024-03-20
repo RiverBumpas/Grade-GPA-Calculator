@@ -1,4 +1,3 @@
-/*
 input[type=text]:focus {
     background-color: lightblue;
 }
@@ -21,9 +20,20 @@ input[type=submit] {
     cursor: pointer;
 }
 
+.addCategory {
+    background-color: darkgry;
+    color: white;
+    cursor: pointer;
+}
+
+.addAssignment {
+    background-color: darkgrey;
+    color: white;
+    cursor: pointer;
+}
+
 .remove {
     background-color: red;
     color: white;
     cursor: pointer;
 }
-*/

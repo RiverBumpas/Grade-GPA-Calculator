@@ -12,7 +12,7 @@ function addCourse() {
             <legend>Course ${additionalCourses}</legend>
             <input type="text" name="courseName${additionalCourses}" placeholder="Course Name" required>
             <div class="totalCategories"></div>
-            <button type="button" id="addCategory" onclick="addCategory(this.parentNode)">Add Category</button>
+            <button type="button" class="addCategory" onclick="addCategory(this.parentNode)">Add Category</button>
             <button type="button" class="remove" onclick="removeElement(this.parentNode.parentNode)">Remove Course</button>
         </fieldset>
     `; // sets html for new course div, input field for course name, sets a div for categories which will also have dynamically added fields, creates button for these fields
@@ -30,10 +30,9 @@ function addCategory(courseDiv) { // same logic as addCourse essentially
             <input type="text" name="${courseDiv.id}categoryName${additionalCategories}" placeholder="Category Name" required>
             <input type="number" name="${courseDiv.id}categoryWeight${additionalCategories}" placeholder="Weight (decimal)" required min="0" max="1" step="0.01">
             <div class="totalAssignments"></div>
-            <button type="button" id="addAssignment" onclick="addAssignment(this.parentNode)">Add Assignment</button>
+            <button type="button" class="addAssignment" onclick="addAssignment(this.parentNode)">Add Assignment</button>
             <button type="button" class="remove" onclick="removeElement(this.parentNode.parentNode)">Remove Category</button>
         </fieldset>
-        
     `;
     totalCategories.appendChild(categoryDiv);
 }
