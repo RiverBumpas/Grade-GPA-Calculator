@@ -16,6 +16,5 @@ if (file_put_contents($file, $data, FILE_APPEND | LOCK_EX) !== false) {
     echo 'There was an error saving your data.';
 }
 
-
 ?>
 
