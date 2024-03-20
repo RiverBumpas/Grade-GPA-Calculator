@@ -24,12 +24,20 @@
                     <input type="submit" value="Submit">
                 </form>
 
-                <script src="form.js"></script>
+                <script src="finalGrade.js"></script>
             </p>
 
             <h2> GPA Calculator </h2>
             <p> 
-                <form action='' method="POST">
+                <form id="gpaCalculator" action='' method="POST">
+                    <div id="totalGrades">
+                        <!-- Grades added dynamically using javascript -->
+                    </div>
+                    <button type="button" id="addGrade">Add Grade</button>
+                    <input type="submit" value="Submit">
+                </form>
+
+                <script src="gpa.js"></script>
             </p>
 
     </body>
