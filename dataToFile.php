@@ -6,9 +6,11 @@ $categoryWeight = $_POST['course1categoryWeight1'] ?? '';
 $assignmentName = $_POST['course1assignmentName1'] ?? '';
 $assignmentScore = $_POST['course1assignmentScore1'] ?? '';
 
-$data = "Name: $courseName\nCategoryName: $categoryName\nCategory Weight: $categoryWeight\nAssignment Name: $assignmentName\nAssignment Score: $assignmentScore";
+$data = "Name: $courseName\nCategory Name: $categoryName\nCategory Weight: $categoryWeight\nAssignment Name: $assignmentName\nAssignment Score: $assignmentScore";
 
 $file = 'results.txt';
+
+file_put_contents($file, '');
 
 if (file_put_contents($file, $data, FILE_APPEND | LOCK_EX) !== false) {
     echo 'Data has been saved successfully.';
