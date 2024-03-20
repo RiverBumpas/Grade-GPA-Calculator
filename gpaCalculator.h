@@ -2,8 +2,8 @@
 // Created by Surya Malik on 2/21/24.
 //
 
-#ifndef M2OEP_SGMALIK_GPACALCULATOR_H
-#define M2OEP_SGMALIK_GPACALCULATOR_H
+#ifndef M3OEP_SGMALIK_GPACALCULATOR_H
+#define M3OEP_SGMALIK_GPACALCULATOR_H
 #include <vector>
 #include <string>
 #include <utility>

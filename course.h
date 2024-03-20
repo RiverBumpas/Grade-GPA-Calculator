@@ -2,8 +2,8 @@
 // Created by Surya Malik on 2/11/24.
 //
 
-#ifndef M1OEP_SGMALIK_CLASS_H
-#define M1OEP_SGMALIK_CLASS_H
+#ifndef M3OEP_SGMALIK_CLASS_H
+#define M3OEP_SGMALIK_CLASS_H
 #include <vector>
 #include "category.h"
 using namespace std;

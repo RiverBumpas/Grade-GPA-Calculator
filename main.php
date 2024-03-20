@@ -14,11 +14,23 @@
     	</header>
 
         <main>
-            <h2> Final Grade Calculator </h2>
-            <p> content </p>
+            <h2> Final Grade Calculator </h2><br>
+            <p>
+                <form id="finalGrade" action='' method="POST">
+                    <div id="totalCourses">
+                        <!-- Courses added dynamically using javaScript -->
+                    </div>
+                    <button type="button" id="addCourse">Add Course</button>
+                    <input type="submit" value="Submit">
+                </form>
+
+                <script src="form.js"></script>
+            </p>
 
             <h2> GPA Calculator </h2>
-            <p> content </p>
+            <p> 
+                <form action='' method="POST">
+            </p>
 
     </body>
 </html>

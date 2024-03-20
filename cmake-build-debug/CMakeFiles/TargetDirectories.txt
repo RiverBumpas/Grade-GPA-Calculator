@@ -1,0 +1,4 @@
+/Users/suryamalik/Desktop/UVM/sophomore/spring/Advanced Programming/M3OEP-sgmalik-rbumpas/cmake-build-debug/CMakeFiles/M2OEP_sgmalik.dir
+/Users/suryamalik/Desktop/UVM/sophomore/spring/Advanced Programming/M3OEP-sgmalik-rbumpas/cmake-build-debug/CMakeFiles/test.dir
+/Users/suryamalik/Desktop/UVM/sophomore/spring/Advanced Programming/M3OEP-sgmalik-rbumpas/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/suryamalik/Desktop/UVM/sophomore/spring/Advanced Programming/M3OEP-sgmalik-rbumpas/cmake-build-debug/CMakeFiles/rebuild_cache.dir
