@@ -14,8 +14,8 @@ function addGrade() {
             <input type="text" name="courseCredit${additionalGrades}" placeholder="# of Credits" required>
             <button type="button" onclick="removeElement(this.parentNode.parentNode)">Remove Grade</button>
         </fieldset>
-    `; // sets html for new course div, input field for course name
-    totalGrades.appendChild(gradeDiv); // add courseDiv to the totalCourses div
+    `; // sets html for new Grade div, input field for course name
+    totalGrades.appendChild(gradeDiv); // add gradeDiv to the totalGrades div
 }
 
 function removeElement(fieldset) {
