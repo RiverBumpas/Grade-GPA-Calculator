@@ -1,0 +1,29 @@
+/*
+input[type=text]:focus {
+    background-color: lightblue;
+}
+
+input[type=submit] {
+    background-color: blue;
+    color: white;
+    cursor: pointer;
+}
+
+#addCourse {
+    background-color: grey;
+    color: white;
+    cursor: pointer;
+}
+
+#addGrade {
+    background-color: grey;
+    color: white;
+    cursor: pointer;
+}
+
+.remove {
+    background-color: red;
+    color: white;
+    cursor: pointer;
+}
+*/
