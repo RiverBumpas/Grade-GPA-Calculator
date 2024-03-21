@@ -7,7 +7,7 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f4f4;
+    background-color: white;
     color: #333;
     line-height: 1.6;
     padding: 20px;
@@ -15,22 +15,32 @@ body {
 
 /* Navigation styling */
 nav {
-    background: #fff;
+    background: white;
     border: 1px solid #ddd;
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px black;
     margin-bottom: 20px;
     padding: 10px 20px;
+    display: flex;
+    justify-content: center; /* Center nav horizontally */
 }
 
 nav ul {
     list-style-type: none;
+    padding: 0;
+    margin: 0;
     display: flex;
-    justify-content: flex-start;
+    gap: 20px; /* Adds space between nav items */
 }
 
 nav ul li {
-    margin-right: 20px;
+    background: lightgray; /* Light grey background for each nav item */
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+
+nav ul li:hover {
+    background: #8d8d8d; /* Darker grey on hover */
 }
 
 nav ul li a {
@@ -41,7 +51,7 @@ nav ul li a {
 
 /* Form styling */
 form {
-    background: #fff;
+    background: white;
     border: 1px solid #ddd;
     border-radius: 5px;
     padding: 20px;
@@ -71,6 +81,17 @@ input[type="number"] {
     border-radius: 5px;
 }
 
+/* submit button styling */
+input[type="submit"] {
+    background-color: rgb(55, 188, 55);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+}
+
 /* Button styling */
 button {
     background-color: #5D93E1;
@@ -92,16 +113,6 @@ button:hover {
 
 .remove:hover {
     background-color: #d9534f;
-}
-
-.addCategory,
-.addAssignment {
-    background-color: #4CAF50;
-}
-
-.addCategory:hover,
-.addAssignment:hover {
-    background-color: #45a049;
 }
 
 /* Dynamic elements visibility */

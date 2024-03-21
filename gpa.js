@@ -11,7 +11,7 @@ function addGrade() {
         <fieldset>
             <legend>Grade ${additionalGrades}</legend>
             <input type="text" name="course${additionalGrades}[0]" placeholder="Course Name" required>
-            <input type="text" name="course${additionalGrades}[1]" placeholder="# of Credits" required>
+            <input type="number" name="course${additionalGrades}[1]" placeholder="# of Credits" required min="1" max="19" step="1">
             <input type="text" name="course${additionalGrades}[2]" placeholder="Grade" required>
             <button type="button" class="remove" onclick="removeElement(this.parentNode.parentNode)">Remove Grade</button>
         </fieldset>
