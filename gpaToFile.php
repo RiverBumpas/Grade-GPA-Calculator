@@ -1,6 +1,7 @@
 <?php
 
-$data = serialize($_POST);
+$initialData = serialize($_POST);
+$data = unserialize($initialData);
 
 $file = 'results.txt';
 
