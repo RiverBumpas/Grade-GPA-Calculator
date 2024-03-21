@@ -13,6 +13,12 @@
             
     	</header>
 
+        <nav class="menu">
+            <a href="grade.php">Final Grade Calculator</a>
+            <a href="gpa.php">GPA Calculator</a>
+            <a href="data.php">Data Visualized</a>
+        </nav>
+
         <main>
             <h2> Final Grade Calculator </h2><br>
             <p>
@@ -26,19 +32,6 @@
 
                 <script src="finalGrade.js"></script>
             </p>
-
-            <h2> GPA Calculator </h2>
-            <p> 
-                <form id="gpaCalculator" action='gpaToFile.php' method="POST">
-                    <div id="totalGrades">
-                        <!-- Grades added dynamically using javascript -->
-                    </div>
-                    <button type="button" id="addGrade">Add Grade</button>
-                    <input type="submit" value="Submit">
-                </form>
-
-                <script src="gpa.js"></script>
-            </p>
-
+        </main>
     </body>
 </html>
