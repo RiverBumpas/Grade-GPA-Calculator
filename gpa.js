@@ -12,6 +12,7 @@ function addGrade() {
             <legend>Grade ${additionalGrades}</legend>
             <input type="text" name="courseName${additionalGrades}" placeholder="Course Name" required>
             <input type="text" name="courseCredit${additionalGrades}" placeholder="# of Credits" required>
+            <input type="text" name="courseGrade${additionalGrades}" placeholder="Grade" required>
             <button type="button" class="remove" onclick="removeElement(this.parentNode.parentNode)">Remove Grade</button>
         </fieldset>
     `; // sets html for new Grade div, input field for course name
