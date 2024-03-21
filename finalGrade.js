@@ -46,7 +46,7 @@ function addAssignment(categoryDiv) { // very similar logic
         <fieldset>
             <legend>Assignment ${additionalAssignments}</legend>
             <input type="text" name="${categoryDiv.id}assignmentName${additionalAssignments}" placeholder="Assignment Name" required>
-            <input type="number" name="${categoryDiv.id}assignmentScore${additionalAssignments}" placeholder="Score" required min="0" step="0.01">
+            <input type="number" name="${categoryDiv.id}assignmentScore${additionalAssignments}" placeholder="Score" required min="0" step="1">
             <button type="button" class="remove" onclick="removeElement(this.parentNode.parentNode)">Remove Assignment</button>
         </fieldset>
     `;

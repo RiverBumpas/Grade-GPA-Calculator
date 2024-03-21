@@ -1,39 +1,112 @@
-input[type=text]:focus {
-    background-color: lightblue;
+/* Base reset for styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-input[type=submit] {
-    background-color: blue;
-    color: white;
-    cursor: pointer;
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
 }
 
-#addCourse {
-    background-color: grey;
-    color: white;
-    cursor: pointer;
+/* Navigation styling */
+nav {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    padding: 10px 20px;
 }
 
-#addGrade {
-    background-color: grey;
-    color: white;
-    cursor: pointer;
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: flex-start;
 }
 
-.addCategory {
-    background-color: darkgry;
-    color: white;
-    cursor: pointer;
+nav ul li {
+    margin-right: 20px;
 }
 
-.addAssignment {
-    background-color: darkgrey;
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+}
+
+/* Form styling */
+form {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+fieldset {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+legend {
+    padding: 0 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+input[type="text"],
+input[type="number"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Button styling */
+button {
+    background-color: #5D93E1;
     color: white;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+}
+
+button:hover {
+    background-color: #3C7DC4;
 }
 
 .remove {
-    background-color: red;
-    color: white;
-    cursor: pointer;
+    background-color: #ff6347;
 }
+
+.remove:hover {
+    background-color: #d9534f;
+}
+
+.addCategory,
+.addAssignment {
+    background-color: #4CAF50;
+}
+
+.addCategory:hover,
+.addAssignment:hover {
+    background-color: #45a049;
+}
+
+/* Dynamic elements visibility */
+.totalCategories,
+.totalAssignments {
+    margin-bottom: 20px;
+}
+
