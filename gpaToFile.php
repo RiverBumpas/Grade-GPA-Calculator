@@ -1,7 +1,13 @@
 <?php
 
-$initialData = serialize($_POST);
-$data = unserialize($initialData);
+$data = "gpaCalculator" . "\n";
+
+foreach ($_POST as $course){
+    $data .= $course[0] . ',' . $course[1] . ',' . $course[2] . "\n";
+}
+
+print_r($data);
+
 
 $file = 'results.txt';
 
