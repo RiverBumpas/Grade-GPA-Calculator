@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() { // waits until html l
         if (validateWeight()) {
             this.submit(); // if validation successful, submit
         } else {
-            alert('The total weights of all categories must equal 1.');
+            alert('Course weights must sum to 1');
         }
     });
 }); // listens for click on addCourse button and calls addCourse function when it's triggered
@@ -80,11 +80,23 @@ function removeElement(fieldset) {
 }
 
 function validateWeight() {
-    let totalWeight = 0;
-    const weights = document.querySelectorAll("input[name$='[weight]']") // targets only input elements, name indicates value to be matched, $= css selector match end of name attribute, weight is specific thing the name must end in based on indexing
-    weights.forEach(weightInput => {
-        totalWeight += parseFloat(weightInput.value) || 0; // string to float and handles null value
-    });
+    const courseNum = document.getElementById('totalCourses');
+    Array.from(courseNum.children).forEach(courseDiv => {
+        let totalWeight = 0;
+        // Find all weight inputs within this specific course
+        const weights = courseDiv.querySelectorAll("input[name$='[weight]']"); // targets only input elements, name indicates value to be matched, $= css selector match end of name attribute, weight is specific thing the name must end in based on indexing
+        
+        weights.forEach(weightInput => {
+            totalWeight += parseFloat(weightInput.value) || 0;
+        });
+        
+        // Now totalWeight contains the sum of weights for categories within this course
+        if (totalWeight !== 1) {
+            // If the total weight for this course does not equal 1, handle validation error
+            return false;
+            // You can add more specific error handling here, such as displaying a message to the user
+        }
+    }); // totalWeight must equal 1
 
-    return totalWeight == 1; // totalWeight must equal 1
+    return true;
 }
