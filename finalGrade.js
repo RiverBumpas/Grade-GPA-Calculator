@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() { // waits until html loaded
-    document.getElementById('addCourse').addEventListener('click', addCourse);
+    document.getElementById('addCourse').addEventListener('click', addCourse); // listens for click on addCourse button and calls addCourse function when it's triggered
     document.addEventListener('click', function(e) {
         if (e.target && e.target.classList.contains('addCategory')) {
             addCategory(e.target.parentNode);
@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function() { // waits until html l
             addAssignment(e.target.parentNode, e.target.parentNode.parentNode.parentNode.parentNode);
         }
     });
+
     document.getElementById('finalGrade').addEventListener('submit', function(event) {
         event.preventDefault(); // stops form from submitting initially
         if (validateWeight()) {
@@ -18,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() { // waits until html l
             alert('Course weights must sum to 1');
         }
     });
-}); // listens for click on addCourse button and calls addCourse function when it's triggered
+}); 
 
 function addCourse() {
     const totalCourses = document.getElementById('totalCourses'); // gets element with totalCourses id attribute
@@ -80,23 +81,22 @@ function removeElement(fieldset) {
 }
 
 function validateWeight() {
-    const courseNum = document.getElementById('totalCourses');
-    Array.from(courseNum.children).forEach(courseDiv => {
+    const courses = document.getElementById('totalCourses').children;
+    let isValid = true;
+
+    Array.from(courses).forEach((courseDiv, courseIndex) => {
         let totalWeight = 0;
-        // Find all weight inputs within this specific course
-        const weights = courseDiv.querySelectorAll("input[name$='[weight]']"); // targets only input elements, name indicates value to be matched, $= css selector match end of name attribute, weight is specific thing the name must end in based on indexing
-        
+        const weights = courseDiv.querySelectorAll("input[name^='courses[" + (courseIndex + 1) + "]'][name$='[weight]']");
+        // selects all inputs with name starting with courses concatenated to the index plus 1 because of 0 indexing, also checks if name end with '[weight]' to ensure it's pulling the weight field 
         weights.forEach(weightInput => {
             totalWeight += parseFloat(weightInput.value) || 0;
         });
-        
-        // Now totalWeight contains the sum of weights for categories within this course
-        if (totalWeight !== 1) {
-            // If the total weight for this course does not equal 1, handle validation error
-            return false;
-            // You can add more specific error handling here, such as displaying a message to the user
-        }
-    }); // totalWeight must equal 1
 
-    return true;
+        if (totalWeight !== 1) {
+            isValid = false;
+        }
+    });
+
+    return isValid; // Return the overall validation result
+
 }
