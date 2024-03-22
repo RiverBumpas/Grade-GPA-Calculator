@@ -1,5 +1,25 @@
 document.addEventListener('DOMContentLoaded', function() { // waits until html loaded
     document.getElementById('addCourse').addEventListener('click', addCourse);
+    document.addEventListener('click', function(e) {
+        if (e.target && e.target.classList.contains('addCategory')) {
+            addCategory(e.target.parentNode);
+        }
+    });
+    document.addEventListener('click', function(e) {
+        if (e.target && e.target.classList.contains('addAssignment')) {
+            addAssignment(e.target.parentNode, e.target.parentNode.parentNode.parentNode.parentNode);
+        }
+    });
+    /*
+    document.getElementById('finalGrade').addEventListener('submit', function(event) {
+        event.preventDefault(); // stops form from submitting initially
+        if (validateWeight()) {
+            this.submit(); // if validation successful, submit
+        } else {
+            alert('The total weights of all categories must not exceed 1.');
+        }
+    });
+    */
 }); // listens for click on addCourse button and calls addCourse function when it's triggered
 
 function addCourse() {
@@ -10,9 +30,9 @@ function addCourse() {
     courseDiv.innerHTML = `
         <fieldset>
             <legend>Course ${additionalCourses}</legend>
-            <input type="text" name="courseName${additionalCourses}" placeholder="Course Name" required>
+            <input type="text" name="courses[${additionalCourses}][name]" placeholder="Course Name" required>
             <div class="totalCategories"></div>
-            <button type="button" class="addCategory" onclick="addCategory(this.parentNode)">Add Category</button>
+            <button type="button" class="addCategory">Add Category</button>
             <button type="button" class="remove" onclick="removeElement(this.parentNode.parentNode)">Remove Course</button>
         </fieldset>
     `; // sets html for new course div, input field for course name, sets a div for categories which will also have dynamically added fields, creates button for these fields
@@ -20,6 +40,7 @@ function addCourse() {
 }
 
 function addCategory(courseDiv) { // same logic as addCourse essentially
+    const additionalCourses = document.getElementById('totalCourses').children.length;
     const totalCategories = courseDiv.querySelector('.totalCategories'); // looks for first element with name totalCategories (css selector name)
     const additionalCategories = totalCategories.children.length + 1;
     const categoryDiv = document.createElement('div');
@@ -27,17 +48,19 @@ function addCategory(courseDiv) { // same logic as addCourse essentially
     categoryDiv.innerHTML = `
         <fieldset>
             <legend>Category ${additionalCategories}</legend>
-            <input type="text" name="${courseDiv.id}categoryName${additionalCategories}" placeholder="Category Name" required>
-            <input type="number" name="${courseDiv.id}categoryWeight${additionalCategories}" placeholder="Weight (decimal)" required min="0" max="1" step="0.01">
+            <input type="text" name="courses[${additionalCourses}][categories][${additionalCategories}][name]" placeholder="Category Name" required>
+            <input type="number" name="courses[${additionalCourses}][categories][${additionalCategories}][weight]" placeholder="Weight (decimal)" required min="0" max="1" step="0.01">
             <div class="totalAssignments"></div>
-            <button type="button" class="addAssignment" onclick="addAssignment(this.parentNode)">Add Assignment</button>
+            <button type="button" class="addAssignment">Add Assignment</button>
             <button type="button" class="remove" onclick="removeElement(this.parentNode.parentNode)">Remove Category</button>
         </fieldset>
     `;
     totalCategories.appendChild(categoryDiv);
 }
 
-function addAssignment(categoryDiv) { // very similar logic
+function addAssignment(categoryDiv, courseDiv) { // very similar logic
+    const additionalCourses = document.getElementById('totalCourses').children.length;
+    const additionalCategories = courseDiv.querySelector('.totalCategories').children.length;
     const totalAssignments = categoryDiv.querySelector('.totalAssignments');
     const additionalAssignments = totalAssignments.children.length + 1;
     const assignmentDiv = document.createElement('div');
@@ -45,8 +68,8 @@ function addAssignment(categoryDiv) { // very similar logic
     assignmentDiv.innerHTML = `
         <fieldset>
             <legend>Assignment ${additionalAssignments}</legend>
-            <input type="text" name="${categoryDiv.id}assignmentName${additionalAssignments}" placeholder="Assignment Name" required>
-            <input type="number" name="${categoryDiv.id}assignmentScore${additionalAssignments}" placeholder="Score" required min="0" step="0.01">
+            <input type="text" name="courses[${additionalCourses}][categories][${additionalCategories}][assignments][${additionalAssignments}][name]" placeholder="Assignment Name" required>
+            <input type="number" name="courses[${additionalCourses}][categories][${additionalCategories}][assignments][${additionalAssignments}][score]" placeholder="Score" required min="0" step="0.01">
             <button type="button" class="remove" onclick="removeElement(this.parentNode.parentNode)">Remove Assignment</button>
         </fieldset>
     `;
@@ -57,3 +80,14 @@ function removeElement(fieldset) {
     // Directly removing the parent fieldset which can be a course, category, or assignment
     fieldset.remove();
 }
+
+/*function validateWeight() {
+    let totalWeight = 0;
+    const weights = document.querySelectorAll()
+    weights.forEach(weightInput => {
+        totalWeight += parseFloat(weightInput.value) || 0; // string to float and handles null value
+    });
+
+    return totalWeight = 1; // totalWeight must equal 1
+}
+*/
