@@ -10,16 +10,14 @@ document.addEventListener('DOMContentLoaded', function() { // waits until html l
             addAssignment(e.target.parentNode, e.target.parentNode.parentNode.parentNode.parentNode);
         }
     });
-    /*
     document.getElementById('finalGrade').addEventListener('submit', function(event) {
         event.preventDefault(); // stops form from submitting initially
         if (validateWeight()) {
             this.submit(); // if validation successful, submit
         } else {
-            alert('The total weights of all categories must not exceed 1.');
+            alert('The total weights of all categories must equal 1.');
         }
     });
-    */
 }); // listens for click on addCourse button and calls addCourse function when it's triggered
 
 function addCourse() {
@@ -81,13 +79,12 @@ function removeElement(fieldset) {
     fieldset.remove();
 }
 
-/*function validateWeight() {
+function validateWeight() {
     let totalWeight = 0;
-    const weights = document.querySelectorAll()
+    const weights = document.querySelectorAll("input[name$='[weight]']") // targets only input elements, name indicates value to be matched, $= css selector match end of name attribute, weight is specific thing the name must end in based on indexing
     weights.forEach(weightInput => {
         totalWeight += parseFloat(weightInput.value) || 0; // string to float and handles null value
     });
 
-    return totalWeight = 1; // totalWeight must equal 1
+    return totalWeight == 1; // totalWeight must equal 1
 }
-*/
