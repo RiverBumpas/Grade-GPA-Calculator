@@ -6,9 +6,6 @@ foreach ($_POST as $course){
     $data .= $course[0] . ',' . $course[1] . ',' . $course[2] . "\n";
 }
 
-print_r($data);
-
-
 $file = 'results.txt';
 
 file_put_contents($file, '');
