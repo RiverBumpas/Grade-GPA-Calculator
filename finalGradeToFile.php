@@ -9,20 +9,25 @@ $file = 'results.txt';
 foreach ($_POST['courses'] as $course) {
     $data .= $course['name'] . "\n";
 
+
     foreach ($course['categories'] as $category) {
         $data .=  $category['name'] . "," . $category['weight'] . ",";
 
-        foreach ($category['assignments'] as $assignment) {
-            $data .= $assignment['name'] . "," . $assignment['score'] . ",";
+
+        $numAssignments = count($category['assignments']);
+
+        foreach ($category['assignments'] as $assignmentIndex => $assignment) {
+            $data .= $assignment['name'] . "," . $assignment['score'];
+
+            if($assignmentIndex < $numAssignments){
+                $data .= ",";
+            }
         }
         $data .= "\n";
     }
     $data .= "\n";
 }
 
-
-
-print_r($_POST);
 
 file_put_contents($file, '');
 
