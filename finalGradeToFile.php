@@ -1,14 +1,26 @@
 <?php
 
 
-$data = "finalGrade . \n";
+$data = "finalGrade" . "\n";
 
 $file = 'results.txt';
 
-//foreach($_POST as $course){
-//    $data .= $course + '\n' + $course[0][0];
 
-//}
+foreach ($_POST['courses'] as $course) {
+    $data .= $course['name'] . "\n";
+
+    foreach ($course['categories'] as $category) {
+        $data .=  $category['name'] . "," . $category['weight'] . ",";
+
+        foreach ($category['assignments'] as $assignment) {
+            $data .= $assignment['name'] . "," . $assignment['score'] . ",";
+        }
+        $data .= "\n";
+    }
+    $data .= "\n";
+}
+
+
 
 print_r($_POST);
 
