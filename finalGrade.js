@@ -13,10 +13,10 @@ document.addEventListener('DOMContentLoaded', function() { // waits until html l
 
     document.getElementById('finalGrade').addEventListener('submit', function(event) {
         event.preventDefault(); // stops form from submitting initially
-        if (validateWeight()) {
+        if (validateWeight() && validateCourse()) {
             this.submit(); // if validation successful, submit
         } else {
-            alert('Course weights must sum to 1');
+            alert('Ensure these conditions are satisfied: courses have at least one category each with at least one assignment, and all weights within each course sum to 1');
         }
     });
 }); 
@@ -30,7 +30,25 @@ function addCourse() {
         <fieldset>
             <legend>Course ${additionalCourses}</legend>
             <input type="text" name="courses[${additionalCourses}][name]" placeholder="Course Name" required>
-            <div class="totalCategories"></div>
+            <div class="totalCategories">
+                <div id="category1">
+                    <fieldset>
+                        <legend>Category 1</legend>
+                        <input type="text" name="courses[${additionalCourses}][categories][1][name]" placeholder="Category Name" required>
+                        <input type="number" name="courses[${additionalCourses}][categories][1][weight]" placeholder="Weight (decimal)" required min="0" max="1" step="0.01">
+                        <div class="totalAssignments">
+                            <div id="assignment1">
+                                <fieldset>
+                                    <legend>Assignment 1</legend>
+                                    <input type="text" name="courses[${additionalCourses}][categories][1][assignments][1][name]" placeholder="Assignment Name" required>
+                                    <input type="number" name="courses[${additionalCourses}][categories][1][assignments][1][score]" placeholder="Score" required min="0" step="0.01">
+                                </fieldset>
+                            </div>
+                        </div>
+                        <button type="button" class="addAssignment">Add Assignment</button>
+                    </fieldset>
+                </div>
+            </div>
             <button type="button" class="addCategory">Add Category</button>
             <button type="button" class="remove" onclick="removeElement(this.parentNode.parentNode)">Remove Course</button>
         </fieldset>
@@ -49,12 +67,21 @@ function addCategory(courseDiv) { // same logic as addCourse essentially
             <legend>Category ${additionalCategories}</legend>
             <input type="text" name="courses[${additionalCourses}][categories][${additionalCategories}][name]" placeholder="Category Name" required>
             <input type="number" name="courses[${additionalCourses}][categories][${additionalCategories}][weight]" placeholder="Weight (decimal)" required min="0" max="1" step="0.01">
-            <div class="totalAssignments"></div>
+            <div class="totalAssignments">
+                <div id="assignment1">
+                    <fieldset>
+                        <legend>Assignment 1</legend>
+                        <input type="text" name="courses[${additionalCourses}][categories][${additionalCategories}][assignments][1][name]" placeholder="Assignment Name" required>
+                        <input type="number" name="courses[${additionalCourses}][categories][${additionalCategories}][assignments][1][score]" placeholder="Score" required min="0" step="0.01">
+                    </fieldset>
+                </div>
+            </div>
             <button type="button" class="addAssignment">Add Assignment</button>
             <button type="button" class="remove" onclick="removeElement(this.parentNode.parentNode)">Remove Category</button>
         </fieldset>
     `;
     totalCategories.appendChild(categoryDiv);
+
 }
 
 function addAssignment(categoryDiv, courseDiv) { // very similar logic
@@ -99,4 +126,24 @@ function validateWeight() {
 
     return isValid; // Return the overall validation result
 
+}
+
+function validateCourse() {
+    const courses = document.getElementById('totalCourses').children;
+    let isValid = true;
+    for (const courseDiv of courses) {
+        const categories = courseDiv.querySelectorAll('.totalCategories > div'); // selects direct div children of totalCategories
+        if (categories.length == 0) {
+            isValid = false;
+        }
+
+        for (const categoryDiv of categories) {
+            const assignments = categoryDiv.querySelectorAll('.totalAssignments > div');
+            if (assignments.length == 0) {
+                isValid = false;
+            }
+        }
+    }
+
+    return isValid;
 }

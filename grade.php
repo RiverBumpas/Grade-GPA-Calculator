@@ -24,12 +24,41 @@
         <main>
             <h2> Final Grade Calculator </h2><br>
             <p>
-                <form id="finalGrade" action="finalGradeToFile.php" method="POST">
+                <form id="finalGrade" action="finalGradeToFile.php" method="post">
                     <div id="totalCourses">
-                        <!-- Courses added dynamically using javaScript -->
+                        <!-- Pre-defined Course -->
+                        <div id="course1">
+                            <fieldset>
+                                <legend>Course 1</legend>
+                                <input type="text" name="courses[1][name]" placeholder="Course Name" required>
+                                <div class="totalCategories">
+                                    <!-- Pre-defined Category -->
+                                    <div id="category1">
+                                        <fieldset>
+                                            <legend>Category 1</legend>
+                                            <input type="text" name="courses[1][categories][1][name]" placeholder="Category Name" required>
+                                            <input type="number" name="courses[1][categories][1][weight]" placeholder="Weight (decimal)" required min="0" max="1" step="0.01">
+                                            <div class="totalAssignments">
+                                                <!-- Pre-defined Assignment -->
+                                                <div id="assignment1">
+                                                    <fieldset>
+                                                        <legend>Assignment 1</legend>
+                                                        <input type="text" name="courses[1][categories][1][assignments][1][name]" placeholder="Assignment Name" required>
+                                                        <input type="number" name="courses[1][categories][1][assignments][1][score]" placeholder="Score" required min="0" step="0.01">
+                                        
+                                                    </fieldset>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="addAssignment">Add Assignment</button>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                                <button type="button" class="addCategory">Add Category</button>
+                            </fieldset>
+                        </div>
                     </div>
                     <button type="button" id="addCourse">Add Course</button>
-                    <input type="submit" value="Submit">
+                    <input type="submit" value="Calculate Grade"></button>
                 </form>
 
                 <script src="finalGrade.js"></script>
