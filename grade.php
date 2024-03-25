@@ -17,7 +17,6 @@
             <ul>
                 <li><a href="grade.php">Final Grade Calculator</a></li>
                 <li><a href="gpa.php">GPA Calculator</a></li>
-                <li><a href="data.php">Data Visualized</a></li>
             </ul>
         </nav>
 
