@@ -1,13 +1,13 @@
 document.addEventListener('DOMContentLoaded', function() { // waits until html loaded
     document.getElementById('addCourse').addEventListener('click', addCourse); // listens for click on addCourse button and calls addCourse function when it's triggered
     document.addEventListener('click', function(e) {
-        if (e.target && e.target.classList.contains('addCategory')) {
+        if (e.target && e.target.classList.contains('addCategory')) { // checks if element that was clicked contains addCategory
             addCategory(e.target.parentNode);
         }
     });
-    document.addEventListener('click', function(e) {
+    document.addEventListener('click', function(e) { // checks if element that was clicked contains addAssignment
         if (e.target && e.target.classList.contains('addAssignment')) {
-            addAssignment(e.target.parentNode, e.target.parentNode.parentNode.parentNode.parentNode);
+            addAssignment(e.target.parentNode, e.target.parentNode.parentNode.parentNode.parentNode); // had to use 4 parents based on the strcture of the html
         }
     });
 
