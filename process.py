@@ -1,10 +1,12 @@
 import sys
 
+#Funciton to handle the backend logic for saving data and then doing calculations
 def handle(file_path):
     with open(file_path, "r") as file:
         path_choice = file.readline().strip()
         
         if path_choice == "gpaCalculator":
+            #Saving gpa data to a list
             gpa_data = []
             for line in file:
                 info = line.strip().split(',')
@@ -13,6 +15,8 @@ def handle(file_path):
                 grade = int(info[2])
                 gpa_data.append((course, credits, grade))
             return gpa_data
+        
+        #Logic for final grade, not yet working
         elif path_choice == "finalGrade":
             lines = file.readlines()
 
@@ -41,10 +45,12 @@ def handle(file_path):
                 courses.append([course_name, [category_name, category_weight, assignments]])
             return courses
 
+#Function to calculate a GPA once given a list of formatted data
 def calculate_gpa(class_grades):
     total_credits = 0
     sum = 0.0
     
+    #Calculating GPA with unpacked tuples from the input list
     for name, credits, grade in class_grades:
         if 100 >= grade >= 93:
             sum += (4.0 * credits)
@@ -76,10 +82,12 @@ def calculate_gpa(class_grades):
     return sum / total_credits
 
 if __name__ == "__main__":
+    # Making sure all command line arguments are passed
     if len(sys.argv) < 2:
         print("Usage: python3 process.py <file_path>")
         sys.exit(1)
 
+    # Getting the file name, and then outputting the resulting GPA
     file_name = sys.argv[1]
     test = calculate_gpa(handle(file_name))
     print(test)
