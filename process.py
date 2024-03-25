@@ -18,11 +18,12 @@ if __name__ == "__main__":
 
         elif path_choice == "finalGrade":
                 #NOT WORKING YET, NEEDS MORE WORK
-                lines = file.readlines()  
+                lines = file.readlines()
 
                 course_name = ""
-                categories = []
+                courses = []
                 category_data = []
+                assignments = []
 
                 for line in lines:
                     line = line.strip() 
@@ -30,8 +31,8 @@ if __name__ == "__main__":
                     # If the line is empty, go to next course
                     if not line:
                         course_name = ""
-                        categories = []
                         category_data = []
+                        assignments = []
                         continue
 
                     if not course_name:
@@ -41,9 +42,9 @@ if __name__ == "__main__":
                     category_info = line.split(',')
                     category_name = category_info[0]
                     category_weight = float(category_info[1])
-                    assignments = [(category_info[i], int(category_info[i+1])) for i in range(2, len(category_info), 2)]
+                    assignments = [(category_info[i], int(category_info[i+1])) for i in range(2, len(category_info)-1, 2)]
 
-                    categories.append([category_name, category_weight, assignments])
+                    courses.append([course_name, [category_name, category_weight, assignments]])
                     #run cpp file
-    print(final_grade_data)
+    print(courses)
         
