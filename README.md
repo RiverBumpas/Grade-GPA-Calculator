@@ -1,34 +1,14 @@
 # M3OEP-sgmalik-rbumpas
 
-River Bumpas and Surya Malik  
-
--change input fields to receive input from website  
--2 options to calculate like we had it before  
--unsure how we can incorporate command line argument  
--potentially split c++ file into python file to do subprocesses? or html -> php -> python -> c++  
--use matplotlib to display graphical data of grades??  
--if we have time implement more logic to predict a final grade  
-  ex. "i have ____ grade currently, what would I need to get on this assignment (check weight) to receive ___ final grade" 
-
-
-messed around for a bit and figured out tentative plan:
-
--use html/css front end with 2 different forms, unique id's  
--use python to process form elements using flask framework  
--depending which form was submitted, pull the name and use a command line switch or 2 separate c++ programs to calculate logic accordingly  
-  -this is because of the fact that the user can either enter final grades or calculate them in order to receive their gpa
-  -the switch allows the logic to be split in one file based on what form was submitted  
-  -the 2 files would simply just separate the logic of the 2 scenarios and again, depending on which form was submitted, the correct file is called
--I believe it is already outputting as plain text, still need to figure out how to process c++ output  
-  -most of the data will be available from the form for the plots immediately, but if you are calculating averages, need those to be output somehow for 
-   graphical reasons  
-  -c++ handling calculations
-  -want assigments if possible to have a graph and want final grades to have a bar graph  
-  -after form submitted, route to a second page or reload page to have the graphs as well as your averages and GPA neatly displayed  
+- River Bumpas and Surya Malik
+- No added installations
+- Our program is a website that currently allows users to enter course grades and return a GPA. We are also working on a final grade calculator tab that we did not have time to fully implement for this Module
+- Our program uses HTML, Javascript, PHP, CSS, and Python
+- We used HTML and CSS to create the framework for our website. We then chose to use Javascript to add functionality to our webpage because our website needed to be dynamic so users could enter an unknown number of class grades. We then use PHP to take the data that is entered and send it to Python where the calculations occur, and then the result is sent back using PHP and displayed on the website. 
+- We want to keep working on this website, and in the future we are looking to finish the Final Grade tab where the user will enter grades that they received on different assignments and then the website will present them with the final grade they will earn in the course based off of the weights that the user enters.
+- There are no known bugs at the time of submission, but the Final Grade tab is not functional at the time of submission
+- Citations:
 
 
-  
--DO MORE RESEARCH ON HOW PYTHON WILL INTERACT WITH C++ OUTPUT
-
-
+- Grade Earned: We think that we earned 100+ points for this project. Our main program is complex and interactive and functioning correctly (40 pts). We use multiple languages (20 pts), and they all are incorporated to utilize their strengths (20 pts). We also used command line arguments in our Python file to receive the data (20 pts). Finally, we took a deeper dive into a language that neither of us had experience in, Javascript, and it was an essential part of our program (10 - 20 pts). This brings our total points to 110 - 120 points. 
 
