@@ -26,10 +26,19 @@
             <p> 
                 <form id="gpaCalculator" action='gpaToFile.php' method="POST">
                     <div id="totalGrades">
+                        <!-- Default grade -->
+                        <div id="grade1">
+                            <fieldset>
+                                <legend>Grade 1</legend>
+                                <input type="text" name="course1[0]" placeholder="Course Name" required>
+                                <input type="number" name="course1[1]" placeholder="# of Credits" required min="1" max="19" step="1">
+                                <input type="text" name="course1[2]" placeholder="Grade" required>
+                            </fieldset>
+                        </div>
                         <!-- Grades added dynamically using javascript -->
                     </div>
                     <button type="button" id="addGrade">Add Grade</button>
-                    <input type="submit" value="Submit">
+                    <input type="submit" value="Calculate GPA">
                 </form>
 
                 <script src="gpa.js"></script>

@@ -1,6 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() { // waits until html loaded
-    document.getElementById('addGrade').addEventListener('click', addGrade);
-}); // listens for click on addCourse button and calls addCourse function when it's triggered
+    document.getElementById('addGrade').addEventListener('click', addGrade); // listens for click on addCourse button and calls addCourse function when it's triggered
+    document.getElementById('gpaCalculator').addEventListener('submit', function(event) {
+        if (document.getElementById('totalGrades').children.length < 1) {
+            event.preventDefault(); // stops form submission and ensures at least one grade is given
+            alert('At least one grade must be submitted.')
+        }
+    });
+}); 
 
 function addGrade() {
     const totalGrades= document.getElementById('totalGrades'); // gets element with totalGrades id attribute
@@ -23,3 +29,4 @@ function removeElement(fieldset) {
     // Directly removing the parent fieldset which can be a course, category, or assignment
     fieldset.remove();
 }
+

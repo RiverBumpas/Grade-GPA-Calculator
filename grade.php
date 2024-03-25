@@ -56,6 +56,7 @@
                                 <button type="button" class="addCategory">Add Category</button>
                             </fieldset>
                         </div>
+                        <!-- Courses, categories, and assignments added dynamically using javascript -->
                     </div>
                     <button type="button" id="addCourse">Add Course</button>
                     <input type="submit" value="Calculate Grade"></button>
